@@ -1,7 +1,8 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  job1:
+  Check-Code:
+    name: Verify-Code
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -15,8 +16,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-  job2:
-    needs: job1
+  Install-Tools:
+    name: Installing-Tools
     runs-on: ubuntu-latest
     steps:
         uses: actions/checkout@v3
@@ -28,16 +29,19 @@ jobs:
           unzip awscliv2.zip
           sudo ./aws/install
   Build-Image:
+    name: Building-Image
     runs-on: ubuntu-latest
     steps:
         uses: actions/checkout@v3
       - run: docker build -t app ${{ github.workspace }}
   Push-Image-ECR:
+    name: Pushing-Image-To-ECR
     runs-on: ubuntu-latest
     steps:
         uses: actions/checkout@v3
       - run: echo 'Pushing Image to ECR'
   Kill-Existing-Containers:
+    name: Killing-Existing-Containers
     runs-on: ubuntu-latest
     steps:
         uses: actions/checkout@v3
