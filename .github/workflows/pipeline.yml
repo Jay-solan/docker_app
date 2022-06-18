@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Check-Code:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -15,3 +15,27 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Install-Tools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installing Docker
+      - run: sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+      - name: Installing AWS CLI
+      - run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install
+  Build-Image:
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker build -t app ${{ github.workspace }}
+  Push-Image-ECR:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Pushing Image to ECR'
+  Kill-Existing-Containers:
+    runs-on: ubuntu-latest
+    steps:
+      - run: aws s3 ls
+      - run: echo containers killed
+
