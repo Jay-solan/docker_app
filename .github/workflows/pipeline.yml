@@ -18,6 +18,8 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Install-Tools:
     name: Installing-Tools
+    steps:
+      - run: echo 'HI'
   #   runs-on: ubuntu-latest
   #   steps:
   #       uses: actions/checkout@v3
