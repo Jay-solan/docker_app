@@ -18,6 +18,7 @@ jobs:
   Install-Tools:
     runs-on: ubuntu-latest
     steps:
+        uses: actions/checkout@v3
       - name: Installing Docker
       - run: sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
       - name: Installing AWS CLI
@@ -28,14 +29,17 @@ jobs:
   Build-Image:
     runs-on: ubuntu-latest
     steps:
+        uses: actions/checkout@v3
       - run: docker build -t app ${{ github.workspace }}
   Push-Image-ECR:
     runs-on: ubuntu-latest
     steps:
+        uses: actions/checkout@v3
       - run: echo 'Pushing Image to ECR'
   Kill-Existing-Containers:
     runs-on: ubuntu-latest
     steps:
+        uses: actions/checkout@v3
       - run: aws s3 ls
       - run: echo containers killed
 
