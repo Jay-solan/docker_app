@@ -14,7 +14,7 @@
                     "containerPort": 5000
                 },
                 {
-                    "hostPort": 81,
+                    "hostPort": 80,
                     "protocol": "tcp",
                     "containerPort": 81
                 }
