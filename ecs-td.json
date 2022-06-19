@@ -34,7 +34,7 @@
             "memoryReservation": 128,
             "volumesFrom": [],
             "stopTimeout": null,
-            "image": "615098137319.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-demo:562e29f62ea302b5b51b084bc26a0b1d7f156ad4",
+            "image": "615098137319.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-demo:app",
             "startTimeout": null,
             "firelensConfiguration": null,
             "dependsOn": null,
@@ -44,7 +44,7 @@
                 "retries": 3,
                 "command": [
                     "CMD-SHELL",
-                    "curl -f fttp://localhost/ || exit 1"
+                    "curl -f http://localhost:5000/ || exit 1"
                 ],
                 "timeout": 60,
                 "interval": 5,
@@ -70,7 +70,7 @@
         "EXTERNAL",
         "EC2"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:615098137319:task-definition/aws-ecs-demo-task-defination:5",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:615098137319:task-definition/aws-ecs-demo-task-defination:8",
     "family": "aws-ecs-demo-task-defination",
     "requiresAttributes": [
         {
@@ -105,7 +105,7 @@
     "networkMode": null,
     "runtimePlatform": null,
     "cpu": null,
-    "revision": 5,
+    "revision": 8,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
