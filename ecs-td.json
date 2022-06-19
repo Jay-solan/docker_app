@@ -1,0 +1,113 @@
+{
+    "ipcMode": null,
+    "executionRoleArn": null,
+    "containerDefinitions": [
+        {
+            "dnsSearchDomains": null,
+            "environmentFiles": null,
+            "logConfiguration": null,
+            "entryPoint": null,
+            "portMappings": [
+                {
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "containerPort": 5000
+                },
+                {
+                    "hostPort": 81,
+                    "protocol": "tcp",
+                    "containerPort": 81
+                }
+            ],
+            "command": null,
+            "linuxParameters": null,
+            "cpu": 0,
+            "environment": [],
+            "resourceRequirements": null,
+            "ulimits": null,
+            "dnsServers": null,
+            "mountPoints": [],
+            "workingDirectory": null,
+            "secrets": null,
+            "dockerSecurityOptions": null,
+            "memory": null,
+            "memoryReservation": 128,
+            "volumesFrom": [],
+            "stopTimeout": null,
+            "image": "615098137319.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-demo:562e29f62ea302b5b51b084bc26a0b1d7f156ad4",
+            "startTimeout": null,
+            "firelensConfiguration": null,
+            "dependsOn": null,
+            "disableNetworking": null,
+            "interactive": null,
+            "healthCheck": {
+                "retries": 3,
+                "command": [
+                    "CMD-SHELL",
+                    "curl -f fttp://localhost/ || exit 1"
+                ],
+                "timeout": 60,
+                "interval": 5,
+                "startPeriod": null
+            },
+            "essential": true,
+            "links": null,
+            "hostname": null,
+            "extraHosts": null,
+            "pseudoTerminal": null,
+            "user": null,
+            "readonlyRootFilesystem": null,
+            "dockerLabels": null,
+            "systemControls": null,
+            "privileged": null,
+            "name": "aws-ecs-demo"
+        }
+    ],
+    "placementConstraints": [],
+    "memory": null,
+    "taskRoleArn": null,
+    "compatibilities": [
+        "EXTERNAL",
+        "EC2"
+    ],
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:615098137319:task-definition/aws-ecs-demo-task-defination:5",
+    "family": "aws-ecs-demo-task-defination",
+    "requiresAttributes": [
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.24"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "ecs.capability.container-health-check"
+        }
+    ],
+    "pidMode": null,
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "networkMode": null,
+    "runtimePlatform": null,
+    "cpu": null,
+    "revision": 5,
+    "status": "ACTIVE",
+    "inferenceAccelerators": null,
+    "proxyConfiguration": null,
+    "volumes": []
+}
